@@ -187,10 +187,19 @@ function Box({ locx, locy, color, setSet, set }) {
     setSet(updatedSet);
   }
 
+  // Define inline styles as an object
+  const style = {
+    background: color,
+    width: "24px",
+    height: "24px",
+    border: "1px solid",
+    borderColor: "rgb(14, 165, 233)"
+  };
+
   return (
     <div
       onClick={ChangeColor}
-      style={{ background: color, width: "24px", height: "24px", border: "1px solid", borderColor: "rgb(14, 165, 233)"}}
+      style={style} // Pass the style object here
     ></div>
   );
 }
