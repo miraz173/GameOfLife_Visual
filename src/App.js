@@ -181,16 +181,18 @@ function App() {
 }
 
 function Box({ locx, locy, color, setSet, set }) {
-  let code = `w-6 h-6 bg-${color === 1 ? "white" : "black"} border border-sky-500`;
-  // let code = `w-${x} h-${x} bg-${color === 1 ? "white" : "black"} border border-sky-500`;
   function ChangeColor() {
-    console.log(locx, locy, set[locx][locy]);
     const updatedSet = [...set];
     updatedSet[locx][locy] = updatedSet[locx][locy] === 0 ? 1 : 0;
     setSet(updatedSet);
   }
 
-  return <div onClick={ChangeColor} className={code}></div>;
+  return (
+    <div
+      onClick={ChangeColor}
+      style={{ background: color, width: "24px", height: "24px", border: "1px solid", borderColor: "rgb(14, 165, 233)"}}
+    ></div>
+  );
 }
 
 export default App;
