@@ -181,8 +181,8 @@ function App() {
 }
 
 function Box({ locx, locy, color, setSet, set }) {
-  let code = `w-${x} h-${x} bg-${color === 1 ? "white" : "black"} border border-sky-500`;
-
+  let code = `w-6 h-6 bg-${color === 1 ? "white" : "black"} border border-sky-500`;
+  // let code = `w-${x} h-${x} bg-${color === 1 ? "white" : "black"} border border-sky-500`;
   function ChangeColor() {
     console.log(locx, locy, set[locx][locy]);
     const updatedSet = [...set];
