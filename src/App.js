@@ -116,7 +116,6 @@ function App() {
                 key={`${rowIndex}-${colIndex}`}
                 locx={rowIndex}
                 locy={colIndex}
-                color={color}
                 setSet={setSet}
                 set={set}
               />
@@ -169,37 +168,37 @@ function App() {
           </button>
         </div>
       )}
-      <div>
-        {run && (
-          <button onClick={stopInterval} className="bg-red-400 p-2 m-2 border">
-            Stop Interval
-          </button>
-        )}
-      </div>
+      {run && (
+        <button onClick={stopInterval} className="bg-red-400 p-2 m-2 border">
+          Stop Interval
+        </button>
+      )}
     </div>
   );
 }
 
-function Box({ locx, locy, color, setSet, set }) {
+function Box({ locx, locy, setSet, set }) {
+  let color = set[locx][locy] === 0 ? "black" : "white";
+  console.log("color", color, set[locx][locy]);
   function ChangeColor() {
     const updatedSet = [...set];
     updatedSet[locx][locy] = updatedSet[locx][locy] === 0 ? 1 : 0;
     setSet(updatedSet);
   }
 
-  // Define inline styles as an object
+  // Defined inline styles as an object
   const style = {
     background: color,
     width: "24px",
     height: "24px",
     border: "1px solid",
-    borderColor: "rgb(14, 165, 233)"
+    borderColor: "rgb(14, 165, 233)",
   };
 
   return (
     <div
       onClick={ChangeColor}
-      style={style} // Pass the style object here
+      style={style}
     ></div>
   );
 }
