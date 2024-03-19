@@ -232,7 +232,7 @@ function App() {
             <p>Enter the size of each individual cell</p>
             <input
               type="number"
-              placeholder="6 (px)"
+              placeholder={x + " (px)"}
               className="border p-1 border-black rounded"
               onChange={(e) => {
                 y = e.target.value;
